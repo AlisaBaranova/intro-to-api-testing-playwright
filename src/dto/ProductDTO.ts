@@ -17,7 +17,7 @@ export class ProductDTO {
       100,
       new Date().toISOString()
     )
-  }
+  };
   static generateCustom (name: string, price: number): ProductDTO {
     return new ProductDTO(
       0,

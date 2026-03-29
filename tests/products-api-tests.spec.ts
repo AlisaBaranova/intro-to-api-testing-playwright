@@ -2,7 +2,6 @@ import {StatusCodes} from 'http-status-codes'
 import {expect, test} from '@playwright/test'
 import {ProductDTO} from '../src/dto/ProductDTO'
 
-
 test.describe ("Lesson 11 -> product API tests", () => {
   const BaseEndpointURL = 'https://backend.tallinn-learning.ee/products';
   const AUTH = {'X-API-Key': 'my-secret-api-key'};
