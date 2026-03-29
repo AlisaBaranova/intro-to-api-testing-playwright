@@ -33,5 +33,4 @@ export class ProductDTO {
       new ProductDTO(3, "C", 300, null ),
       ]
   };
-
 }
