@@ -13,7 +13,6 @@ test.describe ("Lesson 11 -> product API tests", () => {
     price: number
     createdAt: null | string
   }
-
   test('GET/ products - check API returns array with length >=1', async ({request}) => {
     const response = await request.get(BaseEndpointURL, {
       headers: AUTH,
