@@ -1,3 +1,5 @@
+import { z } from "zod"
+
 export class ProductDTO {
   id: number
   name: string
@@ -24,3 +26,11 @@ export class ProductDTO {
     ]
   }
 }
+export const ProductSchema = z.object ({
+  id: z.number(),
+  name: z.string(),
+  price: z.number(),
+  createdAt:z.string().nullable()
+});
+
+export type Product = z.infer<typeof ProductSchema>;

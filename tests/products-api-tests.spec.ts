@@ -1,6 +1,6 @@
 import {StatusCodes} from 'http-status-codes'
 import {expect, test} from '@playwright/test'
-import {ProductDTO} from '../src/dto/ProductDTO'
+import {ProductDTO, ProductSchema, Product} from '../src/dto/ProductDTO'
 
 test.describe ("Lesson 11 -> product API tests", () => {
   const BaseEndpointURL = 'https://backend.tallinn-learning.ee/products';
@@ -18,7 +18,9 @@ test.describe ("Lesson 11 -> product API tests", () => {
       headers: AUTH,
     });
 
-    const responseBody: ProductDTO [] = await response.json();
+    const responseBody: Product [] = await response.json();
+    const firstProduct: Product = ProductSchema.parse(responseBody[0]);
+    expect (firstProduct.createdAt).toBeNull();
     console.log (typeof responseBody);
     expect (response.status()).toBe(StatusCodes.OK);
     expect (responseBody.length).toBeDefined();
@@ -103,14 +105,6 @@ test.describe ("Lesson 11 -> product API tests", () => {
     const searchResponseBody: ProductDTO [] = await searchResponse.json()
     expect(searchResponseBody.length).toBeDefined();
     expect(testProductList).toBeInstanceOf(Array);
-
-
-
-
-
-
-
-
 
   })
 })

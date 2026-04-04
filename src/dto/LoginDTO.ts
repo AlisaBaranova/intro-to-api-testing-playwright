@@ -1,3 +1,4 @@
+import { z } from 'zod'
 export class LoginDTO {
   username: string
   password: string
@@ -16,3 +17,6 @@ export class LoginDTO {
     )
   }
 }
+  export const LoginSchema = z.string()
+
+  export type Login = z.infer <typeof LoginSchema>;
