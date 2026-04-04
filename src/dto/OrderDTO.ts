@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod'
 
 export class OrderDTO {
   status: string
@@ -24,26 +24,20 @@ export class OrderDTO {
     this.id = id
   }
   static generateDefault(): OrderDTO {
-    const dto = new OrderDTO(
-      'OPEN',
-      0,
-      'string',
-      'string',
-      'string',
-      0
-    )
+    const dto = new OrderDTO('OPEN', 0, 'string', 'string', 'string', 0)
     return dto
   }
 }
 
-
-export const OrderSchema = z.object ({
-  status: z.string (),
-  courierID: z.number().nullable(),
-  customName: z.string (),
-  customPhone: z.string (),
-  comment: z.string (),
-  id: z.number ()
-}).strict()
+export const OrderSchema = z
+  .object({
+    status: z.string(),
+    courierID: z.number().nullable(),
+    customName: z.string(),
+    customPhone: z.string(),
+    comment: z.string(),
+    id: z.number(),
+  })
+  .strict()
 
 //export const OrderSchemaResponse

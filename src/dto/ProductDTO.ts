@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from 'zod'
 
 export class ProductDTO {
   id: number
@@ -26,11 +26,11 @@ export class ProductDTO {
     ]
   }
 }
-export const ProductSchema = z.object ({
+export const ProductSchema = z.object({
   id: z.number(),
   name: z.string(),
   price: z.number(),
-  createdAt:z.string().nullable()
-});
+  createdAt: z.string().nullable(),
+})
 
-export type Product = z.infer<typeof ProductSchema>;
+export type Product = z.infer<typeof ProductSchema>

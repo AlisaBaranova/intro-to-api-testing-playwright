@@ -17,6 +17,6 @@ export class LoginDTO {
     )
   }
 }
-  export const LoginSchema = z.string()
+export const LoginSchema = z.string()
 
-  export type Login = z.infer <typeof LoginSchema>;
+export type Login = z.infer<typeof LoginSchema>
