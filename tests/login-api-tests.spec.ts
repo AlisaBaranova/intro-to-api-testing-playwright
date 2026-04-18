@@ -19,8 +19,9 @@ test.describe ('Login API tests', async () => {
       data: LoginDTO.generateCorrectPair(),
     })
 
+    const TestLoginSchema = z.string ();
     const token: z.infer<typeof LoginSchema> = await loginResponse.text()
-    const TestToken = LoginSchema.parse (token)
+    const TestToken = TestLoginSchema.parse (token)
     console.log(TestToken)
     expect(loginResponse.status()).toBe(200)
     expect(token.length).toBeGreaterThan(0);
