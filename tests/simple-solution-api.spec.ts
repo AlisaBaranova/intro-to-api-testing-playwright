@@ -14,12 +14,17 @@ test('post order with correct data should receive code 201', async ({ request })
   console.log('token' + token)
   const response = await request.post(ORDERS_URL, {
     headers: {
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     data: OrderDTO.generateDefault(),
   })
+
   const responseBody: OrderDTO = await response.json() //"age:20,title:'123'"
   const statusCode = response.status()
+  console.log('Real status code:'+ statusCode);
+
+  // const rawText = await response.text()
+  // console.log ('Real body:', rawText)
 
   console.log('response status:', statusCode)
   console.log('response body:', responseBody)
@@ -36,7 +41,7 @@ test('get order with correct id should receive code 200', async ({ request }) =>
 
   const response = await request.post(ORDERS_URL, {
     headers: {
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     data: OrderDTO.generateDefault(),
   })
@@ -44,7 +49,7 @@ test('get order with correct id should receive code 200', async ({ request }) =>
 
   const responseSearch = await request.get(`${ORDERS_URL}/${responseBody.id}`, {
     headers: {
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
   })
 
